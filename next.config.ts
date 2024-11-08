@@ -3,8 +3,8 @@ import { createClient, groq } from 'next-sanity'
 import type { NextConfig } from 'next'
 
 const client = createClient({
-	projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
-	dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
+	projectId: process.env.SANITY_STUDIO_SANITY_PROJECT_ID,
+	dataset: process.env.SANITY_STUDIO_SANITY_DATASET,
 	// token, // for private datasets
 	apiVersion: '2024-11-01',
 	useCdn: true,

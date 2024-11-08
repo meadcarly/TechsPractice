@@ -20,6 +20,7 @@ export const ctaQuery = groq`
 `
 
 export async function getSite() {
+	console.log("**********************************")
 	const data = await fetchSanityLive<Sanity.Site>({
 		query: groq`
 			*[_type == 'site'][0]{
@@ -32,6 +33,9 @@ export async function getSite() {
 			}
 		`,
 	})
+	console.log(data)
+	console.log("**********************************")
+
 
 	if (!data) throw new Error("Missing 'site' document in Sanity Studio")
 

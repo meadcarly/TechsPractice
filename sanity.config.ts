@@ -1,67 +1,28 @@
 'use client'
 
-import { defineConfig } from 'sanity'
-import { projectId, dataset } from '@/sanity/lib/env'
-import { structure } from './src/sanity/structure'
-import { presentation } from './src/sanity/presentation'
-import {
-	dashboardTool,
-	projectInfoWidget,
-	projectUsersWidget,
-} from '@sanity/dashboard'
-import { sanitypressGuideWidget } from './src/sanity/sanitypressGuideWidget'
-import { vercelWidget } from 'sanity-plugin-dashboard-widget-vercel'
-import { visionTool } from '@sanity/vision'
-import { codeInput } from '@sanity/code-input'
-import { schemaTypes } from './src/sanity/schemas'
+/**
+ * This configuration is used to for the Sanity Studio that’s mounted on the `\src\app\studio\[[...tool]]\page.tsx` route
+ */
 
-const singletonTypes = ['site']
+import {visionTool} from '@sanity/vision'
+import {defineConfig} from 'sanity'
+import {structureTool} from 'sanity/structure'
+
+// Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
+import {apiVersion, dataset, projectId} from './src/sanity/env'
+import {schema} from './src/sanity/schemaTypes'
+import {structure} from './src/sanity/structure'
 
 export default defineConfig({
-	projectId,
-	dataset,
-	basePath: '/admin',
-
-	plugins: [
-		structure,
-		presentation,
-		dashboardTool({
-			name: 'deployment',
-			title: 'Deployment',
-			widgets: [vercelWidget()],
-		}),
-		dashboardTool({
-			name: 'info',
-			title: 'Info',
-			widgets: [
-				projectInfoWidget(),
-				projectUsersWidget(),
-				sanitypressGuideWidget(),
-			],
-		}),
-		visionTool(),
-		codeInput(),
-	],
-
-	tasks: { enabled: false },
-	scheduledPublishing: { enabled: false },
-
-	schema: {
-		types: schemaTypes,
-		templates: (templates) =>
-			templates.filter(
-				({ schemaType }) => !singletonTypes.includes(schemaType),
-			),
-	},
-
-	document: {
-		actions: (input, { schemaType }) =>
-			singletonTypes.includes(schemaType)
-				? input.filter(
-						({ action }) =>
-							action &&
-							['publish', 'discardChanges', 'restore'].includes(action),
-					)
-				: input,
-	},
+  basePath: '/studio',
+  projectId,
+  dataset,
+  // Add and edit the content schema in the './sanity/schemaTypes' folder
+  schema,
+  plugins: [
+    structureTool({structure}),
+    // Vision is for querying with GROQ from inside the Studio
+    // https://www.sanity.io/docs/the-vision-plugin
+    visionTool({defaultApiVersion: apiVersion}),
+  ],
 })

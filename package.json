@@ -14,6 +14,7 @@
 	"dependencies": {
 		"@next/third-parties": "^15.0.2",
 		"@portabletext/to-html": "^2.0.13",
+		"@sanity/cli": "^3.63.0",
 		"@sanity/code-input": "^4.1.4",
 		"@sanity/dashboard": "^4.1.0",
 		"@sanity/image-url": "^1.1.0",
@@ -24,7 +25,7 @@
 		"clsx": "^2.1.1",
 		"feed": "^4.2.2",
 		"next": "^15.0.2",
-		"next-sanity": "^9.8.8",
+		"next-sanity": "^9.8.10",
 		"next-sanity-image": "^6.1.1",
 		"octokit": "^4.0.2",
 		"react": "^18",
