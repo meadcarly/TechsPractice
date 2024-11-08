@@ -1,4 +1,4 @@
-import { getSite } from '@/sanity/lib/queries'
+import { getSite } from '../../sanity/lib/queries'
 import Wrapper from './Wrapper'
 import Link from 'next/link'
 import Img from '@/ui/Img'

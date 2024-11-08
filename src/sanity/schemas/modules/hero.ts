@@ -6,7 +6,7 @@ import {
 	alignItems,
 	alignmentFieldset,
 } from '../fragments/fields/alignment'
-import { getBlockText } from '@/sanity/lib/utils'
+import { getBlockText } from '../../lib/utils'
 
 export default defineType({
 	name: 'hero',

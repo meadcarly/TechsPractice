@@ -1,4 +1,4 @@
-import { fetchSanityLive, groq } from '@/sanity/lib/fetch'
+import { fetchSanityLive, groq } from '../sanity/lib/fetch'
 import type { MetadataRoute } from 'next'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -23,7 +23,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 			}
 		}`,
 		params: {
-			baseUrl: process.env.NEXT_PUBLIC_BASE_URL + '/',
+			baseUrl: process.env.SANITY_STUDIO_BASE_URL + '/',
 		},
 	})
 

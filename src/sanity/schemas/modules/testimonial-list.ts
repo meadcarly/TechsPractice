@@ -1,6 +1,6 @@
 import { defineField, defineType } from 'sanity'
 import { GrBlockQuote } from 'react-icons/gr'
-import { count, getBlockText } from '@/sanity/lib/utils'
+import { count, getBlockText } from '../../lib/utils'
 
 export default defineType({
 	name: 'testimonial-list',

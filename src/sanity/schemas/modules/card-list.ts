@@ -1,6 +1,6 @@
 import { defineArrayMember, defineField, defineType } from 'sanity'
 import { TfiLayoutMediaLeftAlt } from 'react-icons/tfi'
-import { count, getBlockText } from '@/sanity/lib/utils'
+import { count, getBlockText } from '../../lib/utils'
 
 export default defineType({
 	name: 'card-list',

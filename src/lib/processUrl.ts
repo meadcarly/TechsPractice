@@ -16,7 +16,7 @@ export default function (
 	const path = slug === 'index' ? null : slug
 
 	return (
-		(base ? process.env.NEXT_PUBLIC_BASE_URL + '/' : '/') +
+		(base ? process.env.SANITY_STUDIO_BASE_URL + '/' : '/') +
 		[segment, path, stegaClean(params)].filter(Boolean).join('/')
 	)
 }

@@ -1,3 +1,5 @@
+// costum types
+import code from './customTypes/code'
 // documents
 import site from './documents/site'
 import page from './documents/page'
@@ -43,6 +45,8 @@ import testimonialFeatured from './modules/testimonial.featured'
 import testimonialList from './modules/testimonial-list'
 
 export const schemaTypes = [
+	//custom types
+	code,
 	// documents
 	site,
 	page,

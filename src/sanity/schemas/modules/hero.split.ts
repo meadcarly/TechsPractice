@@ -1,7 +1,7 @@
 import { defineField, defineType } from 'sanity'
 import { TfiLayoutMediaLeft } from 'react-icons/tfi'
 import { reputationBlock } from '../documents/reputation'
-import { getBlockText } from '@/sanity/lib/utils'
+import { getBlockText } from '../../lib/utils'
 
 export default defineType({
 	name: 'hero.split',

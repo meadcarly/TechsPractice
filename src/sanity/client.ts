@@ -1,9 +1,9 @@
 import { createClient } from 'next-sanity'
-import { projectId, dataset, apiVersion } from '@/sanity/lib/env'
-import { dev } from '@/lib/env'
+import { projectId, dataset, apiVersion } from '../lib/env'
+import { dev } from '../lib/env'
 
 export default createClient({
-	projectId,
+	projectId: projectId,
 	dataset,
 	apiVersion,
 	useCdn: !dev,
